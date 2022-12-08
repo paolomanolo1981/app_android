@@ -90,55 +90,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //validacion de ingreso de datos
-        private boolean ValidarIngreso(){//retorna verdadero o falso
-            boolean validar=true;
-            if(t_codigo.getText().toString().equalsIgnoreCase("")){
-                t_codigo.setError("Ingresa un código");
-                t_codigo.requestFocus();
+
+    }
+
+    //Validacion de Ingreso de datos
+    private boolean ValidarIngreso(){ //retorna Verdadero o falso
+        boolean validar=true;
+        if(t_codigo.getText().toString().equalsIgnoreCase("")){ //si el objeto t_codigo esta vacio
+            t_codigo.setError("INGRESE UN CODIGO");
+            t_codigo.requestFocus();
+            validar=false;
+        }else{
+            if(t_paterno.getText().toString().equalsIgnoreCase("")){
+                t_paterno.setError("INGRESE APELLIDO PATERNO");
+                t_paterno.requestFocus();
                 validar=false;
-
             }else{
-
-                if(t_paterno.getText().toString().equalsIgnoreCase("")){
-                    t_paterno.setError("Ingresa el apellido paterno");
-                    t_paterno.requestFocus();
+                if(t_materno.getText().toString().equalsIgnoreCase("")){
+                    t_materno.setError("INGRESE APELLIDO MATERNO");
+                    t_materno.requestFocus();
                     validar=false;
-
                 }else{
-                    if(t_materno.getText().toString().equalsIgnoreCase("")){
-                        t_materno.setError("Ingresa el apellido materno");
-                        t_materno.requestFocus();
+                    if(t_nombres.getText().toString().equalsIgnoreCase("")){
+                        t_nombres.setError("INGRESE NOMBRES");
+                        t_nombres.requestFocus();
                         validar=false;
-
                     }else{
-                        if(t_nombres.getText().toString().equalsIgnoreCase("")){
-                            t_nombres.setError("Ingresa el nombre");
-                            t_nombres.requestFocus();
+                        if(indicesexo==0){
+                            sp_sexo.setError("SELECCIONE UN SEXO");
+                            sp_sexo.requestFocus();
                             validar=false;
-
                         }else{
-                            if(indicesexo==0){
-                                sp_sexo.setError("Seleccione el sexo");
-                                sp_sexo.requestFocus();
-                                validar=false;
+                            if(indicesexo>0){
+                                sp_sexo.setError(null);
                             }else{
-                                if(indicesexo>0){
-                                    sp_sexo.setError(null);
-
+                                if(t_direccion.getText().toString().equalsIgnoreCase("")){
+                                    t_direccion.setError("INGRESE DIRECCION");
+                                    t_direccion.requestFocus();
+                                    validar=false;
                                 }else{
-                                    if(t_direccion.getText().toString().equalsIgnoreCase("")){
-                                        t_direccion.setError("Ingresa la direccion");
-                                        t_direccion.requestFocus();
+                                    if(t_distrito.getText().toString().equalsIgnoreCase("")){
+                                        t_distrito.setError("INGRESE DISTRITO");
+                                        t_distrito.requestFocus();
                                         validar=false;
-
-                                    }else{
-                                        if(t_distrito.getText().toString().equalsIgnoreCase("")){
-                                            t_distrito.requestFocus();
-                                            t_distrito.setError("Ingresa el distrito");
-                                            validar=false;
-
-                                        }
                                     }
                                 }
                             }
@@ -146,9 +140,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-
-
         }
-
+        return validar; //retorna el valor de la variable validar (true o false)
     }
+
 }
