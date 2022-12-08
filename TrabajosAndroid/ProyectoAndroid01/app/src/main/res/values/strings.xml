@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ProyectoAndroid01</string>
+    <string name="rcodigo">INGRESE CODIGO</string>
+    <string name="rpaterno">APELLIDO PATERNO</string>
+    <string name="rmaterno">APELLIDO MATERNO</string>
+    <string name="rnombres">NOMBRES</string>
+    <string name="rdireccion">DIRECCION</string>
+    <string name="rdistrito">DISTRITO</string>
+    <string name="rbnuevo">NUEVO</string>
+    <string name="rgrabar">GRABAR</string>
+    <string name="rbsalir">SALIR</string>
+</resources>
