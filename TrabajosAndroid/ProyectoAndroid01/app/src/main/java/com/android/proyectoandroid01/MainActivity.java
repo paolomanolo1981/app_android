@@ -5,7 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.android.proyectoandroid01.PkgDatos.ClaseSql;
+import com.android.proyectoandroid01.PkgEntidades.EntidadPersona;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
  //Se generan los objetos de tipo clase EditText
@@ -79,6 +84,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Evento onClick del objeto b_grabar
+                if(ValidarIngreso()){
+                    EntidadPersona objPersona=new EntidadPersona();
+                    objPersona.setCodigo(t_codigo.getText().toString().toUpperCase());
+                    objPersona.setPaterno(t_paterno.getText().toString().toUpperCase());
+                    objPersona.setMaterno(t_materno.getText().toString().toUpperCase());
+                    objPersona.setNombre(t_nombres.getText().toString().toUpperCase());
+                    objPersona.setSexo(elementosexo);
+                    objPersona.setDireccion(t_direccion.getText().toString().toUpperCase());
+                    objPersona.setDistrito(t_distrito.getText().toString().toUpperCase());
+
+                    //Se envia el nombre de la actividad: MainActivity hacia el
+                    //parametro contexto del constructor de la clase: ClaseSql
+                    //En esta actividad --> MainActivity, se ejecuta los metodos de la clase: ClaseSql
+                    //se crea un objeto data de tipo clase: ClaseSql, con un parámetro de tipo Actividad MainActivity
+                    ClaseSql  data=new ClaseSql(MainActivity.this);
+
+                   try{
+                       data.AbrirBDD();//se usa el metodo para abrir la base de datos
+                       data.Ingreso_Persona(objPersona);
+                       data.CerrarBDD();
+
+                   }catch(Exception e1){
+
+                   }
+
+                }
 
             }
         });
@@ -91,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-    }
 
+    }
     //Validacion de Ingreso de datos
     private boolean ValidarIngreso(){ //retorna Verdadero o falso
         boolean validar=true;
@@ -143,5 +174,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return validar; //retorna el valor de la variable validar (true o false)
     }
+
+
 
 }
