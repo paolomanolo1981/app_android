@@ -90,5 +90,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //validacion de ingreso de datos
+        private boolean ValidarIngreso(){//retorna verdadero o falso
+            boolean validar=true;
+            if(t_codigo.getText().toString().equalsIgnoreCase("")){
+                t_codigo.setError("Ingresa un código");
+                t_codigo.requestFocus();
+                validar=false;
+
+            }else{
+
+                if(t_paterno.getText().toString().equalsIgnoreCase("")){
+                    t_paterno.setError("Ingresa el apellido paterno");
+                    t_paterno.requestFocus();
+                    validar=false;
+
+                }else{
+                    if(t_materno.getText().toString().equalsIgnoreCase("")){
+                        t_materno.setError("Ingresa el apellido materno");
+                        t_materno.requestFocus();
+                        validar=false;
+
+                    }
+                }
+            }
+
+
+        }
+
     }
 }
