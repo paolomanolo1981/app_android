@@ -111,6 +111,38 @@ public class MainActivity extends AppCompatActivity {
                         t_materno.requestFocus();
                         validar=false;
 
+                    }else{
+                        if(t_nombres.getText().toString().equalsIgnoreCase("")){
+                            t_nombres.setError("Ingresa el nombre");
+                            t_nombres.requestFocus();
+                            validar=false;
+
+                        }else{
+                            if(indicesexo==0){
+                                sp_sexo.setError("Seleccione el sexo");
+                                sp_sexo.requestFocus();
+                                validar=false;
+                            }else{
+                                if(indicesexo>0){
+                                    sp_sexo.setError(null);
+
+                                }else{
+                                    if(t_direccion.getText().toString().equalsIgnoreCase("")){
+                                        t_direccion.setError("Ingresa la direccion");
+                                        t_direccion.requestFocus();
+                                        validar=false;
+
+                                    }else{
+                                        if(t_distrito.getText().toString().equalsIgnoreCase("")){
+                                            t_distrito.requestFocus();
+                                            t_distrito.setError("Ingresa el distrito");
+                                            validar=false;
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
