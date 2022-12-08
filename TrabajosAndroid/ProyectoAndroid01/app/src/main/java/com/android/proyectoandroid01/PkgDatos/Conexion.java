@@ -12,7 +12,7 @@ public class Conexion extends SQLiteOpenHelper {
     private static final String BDD="BDPersona.bd";
     //Se crea una variable Version de tipo entero cuyo valor inicial es uno
     private static final int Version=1;
-    private String Sql="create table Persona(id int primary key autoincrement,codpersona text," +
+    private String Sql="create table Persona(id integer primary key autoincrement,codpersona text," +
                        "patpersona text,matpersona text,nompersona text,sexopersona text," +
                         "direpersona text, distpersona text)";
 

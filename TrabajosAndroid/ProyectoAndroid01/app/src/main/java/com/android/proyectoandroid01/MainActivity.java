@@ -1,10 +1,13 @@
 package com.android.proyectoandroid01;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.proyectoandroid01.PkgDatos.ClaseSql;
 import com.android.proyectoandroid01.PkgEntidades.EntidadPersona;
@@ -104,9 +107,13 @@ public class MainActivity extends AppCompatActivity {
                        data.AbrirBDD();//se usa el metodo para abrir la base de datos
                        data.Ingreso_Persona(objPersona);
                        data.CerrarBDD();
+                       Toast mensaje=Toast.makeText(getApplicationContext(),"Datos Registrados",Toast.LENGTH_LONG);
+                       mensaje.show();
 
-                   }catch(Exception e1){
 
+                   }catch(SQLException e1){
+                       Toast mensaje=Toast.makeText(getApplicationContext(),e1.getMessage(),Toast.LENGTH_LONG);
+                       mensaje.show();
                    }
 
                 }
