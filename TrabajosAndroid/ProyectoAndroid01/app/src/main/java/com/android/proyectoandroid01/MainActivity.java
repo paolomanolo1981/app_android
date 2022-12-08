@@ -38,6 +38,20 @@ public class MainActivity extends AppCompatActivity {
         t_direccion=findViewById(R.id.tdireccion);
         t_distrito=findViewById(R.id.tdistrito);
         sp_sexo=findViewById(R.id.mssexo);
+
+        //evento del objeto sp_sexo
+        sp_sexo.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                //se captura el indice del elemento
+                indicesexo=sp_sexo.getSelectedIndex();
+                //se captura el texto del elemento
+                elementosexo=sp_sexo.getText().toString();
+
+
+            }
+        });
+
         //sp_sexo.setItems("SEXO...","MASCULINO","FEMENINO");
         //Indice de la opcion: 0         1           2
         sp_sexo.setItems("SEXO...","MASCULINO","FEMENINO");
