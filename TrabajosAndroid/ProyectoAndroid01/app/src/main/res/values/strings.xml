@@ -9,4 +9,8 @@
     <string name="rbnuevo">NUEVO</string>
     <string name="rgrabar">GRABAR</string>
     <string name="rbsalir">SALIR</string>
+    <string name="ringreso">INGRESO</string>
+    <string name="rlistado">LISTADO</string>
+    <string name="rbusqueda">BUSQUEDA</string>
+    <string name="rsalirprincipal">SALIR</string>
 </resources>

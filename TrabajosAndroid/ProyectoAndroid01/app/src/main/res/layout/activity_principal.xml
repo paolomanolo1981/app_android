@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2B73BC"
-    tools:context=".Principal" >
+    tools:context=".Principal">
 
     <LinearLayout
         android:id="@+id/linearbotonprincipal"
@@ -17,9 +17,12 @@
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
         <Button
             android:id="@+id/btningreso"
@@ -29,7 +32,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/formatobotones"
             android:drawableTop="@drawable/ic_ingreso"
-            android:text="INGRESO"
+            android:text="@string/ringreso"
             android:textColor="#FFEB3B"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -42,7 +45,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/formatobotones"
             android:drawableTop="@drawable/ic_listado"
-            android:text="LISTADO"
+            android:text="@string/rlistado"
             android:textColor="#FFEB3B"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -55,7 +58,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/formatobotones"
             android:drawableTop="@drawable/ic_buscar"
-            android:text="BUSQUEDA"
+            android:text="@string/rbusqueda"
             android:textColor="#FFEB3B"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -68,7 +71,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/formatobotones"
             android:drawableTop="@drawable/ic_salida"
-            android:text="SALIR"
+            android:text="@string/rsalirprincipal"
             android:textColor="#FFEB3B"
             android:textSize="34sp"
             android:textStyle="bold" />
