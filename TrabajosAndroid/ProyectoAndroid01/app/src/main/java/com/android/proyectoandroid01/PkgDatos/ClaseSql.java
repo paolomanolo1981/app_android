@@ -1,6 +1,7 @@
 package com.android.proyectoandroid01.PkgDatos;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import com.android.proyectoandroid01.PkgEntidades.EntidadPersona;
@@ -53,5 +54,43 @@ public class ClaseSql {
         //utilizando al objeto cv de tipo clase: ContentValues
         return db.insert("Persona",null,cv);
     }
+
+    //se crea un método de ListadoPersona de tipo String
+    public String ListadoPersona(){
+        String[] columnas=new String[]{
+                "codpersona", "patpersona"  ,"patpersona","matpersona","nompersona","sexopersona","direpersona","distpersona"
+        };
+        //se crea un objeto cursor de tipo clase Cursor
+        //se utiliza el método query, para realizar el listado de datos de la tabla Persona
+        //Primer parametro es el nombre de la tabla Persona
+        //Segundo parametro es el nombre de las columanas en forma de array
+        Cursor cursor=db.query("Persona",columnas,null, null, null,null,null);
+        String resultado="";//se declara una variable d tipo String
+        //se obtiene el indice d cada columna por medio del método getColumnIndex
+        //el indice de la columna se almacena hacia una variable d tipo entero
+        int indiceCodigo=cursor.getColumnIndex("codpersona");
+        int indicePaterno=cursor.getColumnIndex("patpersona");
+        int indiceMaterno=cursor.getColumnIndex("matpersona");
+        int indiceNombre=cursor.getColumnIndex("nompersona");
+        int indiceSexo=cursor.getColumnIndex("sexopersona");
+        int indiceDireccion=cursor.getColumnIndex("direpersona");
+        int indiceDistrito=cursor.getColumnIndex("distpersona");
+
+        String raya="======================";
+        //para el manejo de las filas, se utiliza la setencia de repeticion for
+        //primer parametro => curso.moveToFirst()=> primera fila
+        //segundo parametro => !cursor.isAfterLast()=> que no se ubigue despues de la ultima fila
+        //tercer parametro es recorrer fila por fila e ir a la siguiente fila
+        for(cursor.moveToFirst();!cursor.isAfterLast();cursor.moveToNext()){
+            resultado+= raya+"\n"+"CODIGO: " + cursor.getString(indiceCodigo)  +"\n"+"PATERNO: " + cursor.getString(indicePaterno) +"\n"+
+                             "MATERNO: " + cursor.getString(indiceMaterno) +"\n"+  "NOMBRE: " + cursor.getString(indiceNombre) +"\n"+
+                             "SEXO: " + cursor.getString(indiceSexo) +"\n"+ "DIRECCION: " + cursor.getString(indiceDireccion) +"\n"+ "DISTRITO: " + cursor.getString(indiceDistrito) +"\n" + raya + "\n";
+
+
+
+        }
+        return  resultado;
+    }
+
 }
 

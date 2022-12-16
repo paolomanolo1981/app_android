@@ -2,6 +2,7 @@ package com.android.proyectoandroid01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,11 +39,20 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         //con el boton: Ingreso
         //si el id es igual al id de la vista: btningreso
         if(id==R.id.btningreso){
+            //Intent=> permite llamar a otra actividad
+            //se crea un objeto vingreso de tipo de clase intent
+            //primer argumenteo es el contexto de la actividad actual
+            //segundo argumento es el nombre de la actividad a llamar
+
+            Intent vingreso=new Intent(getApplicationContext(),MainActivity.class);
+            //se inicia la actividad MainActivity, por medio del objeto vingreso
+            startActivity(vingreso);
 
         }
 
         if(id==R.id.btnlistado){
-
+            Intent vListado=new Intent(getApplicationContext(),Listado.class);
+            startActivity(vListado);
         }
 
         if(id==R.id.btnbusqueda){
@@ -50,7 +60,7 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         }
 
         if(id==R.id.btnsalirprincipal){
-
+            finish();
         }
 
 
